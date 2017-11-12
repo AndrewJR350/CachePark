@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1076615591213",
+    "firebase_url": "https://cacheme-eb4b4.firebaseio.com",
+    "project_id": "cacheme-eb4b4",
+    "storage_bucket": "cacheme-eb4b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076615591213:android:13620295ba401eaf",
+        "android_client_info": {
+          "package_name": "com.example.andrewjr.cacheme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076615591213-tbn96tklok5o4hf1ggd3o2po0c44antg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.andrewjr.cacheme",
+            "certificate_hash": "bfb332e47a2442bda70902f53d7ce0bc2d2537ba"
+          }
+        },
+        {
+          "client_id": "1076615591213-vgauaed6k68i6qoq34gq22f5bab57s8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8xT7ygC2c-txYTTh6VP4OkoFjsbloX4o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076615591213-vgauaed6k68i6qoq34gq22f5bab57s8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

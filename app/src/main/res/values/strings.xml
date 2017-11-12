@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Cache Park</string>
+    <string name="title_activity_available_slots">Map</string>
+</resources>
