@@ -86,9 +86,10 @@ public class user_profile extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
 
         if (id == R.id.viewBills) {
-            Intent intent = new Intent(user_profile.this,view_bills.class);
-            startActivity(intent);
-            Toast.makeText(getApplicationContext(), "Hello, Here are your Bills", Toast.LENGTH_LONG).show();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new view_bills_fragment()).commit();
+//            Intent intent = new Intent(user_profile.this,view_bills.class);
+//            startActivity(intent);
+//            Toast.makeText(getApplicationContext(), "Hello, Here are your Bills", Toast.LENGTH_LONG).show();
         } else if (id == R.id.account) {
             Intent intent = new Intent(user_profile.this, user_profile.class);
             startActivity(intent);
@@ -115,7 +116,7 @@ public class user_profile extends AppCompatActivity
 //            startActivity(intent);
 //            Toast.makeText(getApplicationContext(), "Register Your Slots", Toast.LENGTH_LONG).show();
         }
-        
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
