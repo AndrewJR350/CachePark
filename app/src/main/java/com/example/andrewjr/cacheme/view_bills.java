@@ -22,6 +22,7 @@ public class view_bills extends AppCompatActivity {
     private String TAG = "cacheMe";
     private ListView billsListView;
     private List<String> billList = new ArrayList<>();
+    private ArrayAdapter<String> arrayAdapter;
 
 
 
@@ -30,11 +31,10 @@ public class view_bills extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_bills);
         billsListView = (ListView) findViewById(R.id.listview_bills);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, billList);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, billList);
         billsListView.setAdapter(arrayAdapter);
 
         getAllBill();
-        arrayAdapter.notifyDataSetChanged();
     }
 
 
@@ -93,5 +93,6 @@ public class view_bills extends AppCompatActivity {
         for(Bills bill : billsArrayList) {
             billList.add("Parked Hours : " + bill.getHours() + "\n" + "Price : " + bill.getTotalPrice() + "\n" + "Rating : " + bill.getRating());
         }
+        arrayAdapter.notifyDataSetChanged();
     }
 }

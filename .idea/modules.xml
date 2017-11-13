@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CacheMe.iml" filepath="$PROJECT_DIR$/CacheMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CachePark.iml" filepath="$PROJECT_DIR$/CachePark.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
