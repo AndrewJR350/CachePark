@@ -72,7 +72,7 @@ public class login extends AppCompatActivity {
                     String databasePassword = map.get("password");
                     Log.i(TAG, databasePassword);
                     if(password.equals(databasePassword)){
-                        Intent intent = new Intent(login.this,available_slots.class);
+                        Intent intent = new Intent(login.this,user_profile.class);
                         startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Login Successful", duration).show();
                     }else{

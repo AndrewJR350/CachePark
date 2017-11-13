@@ -42,7 +42,7 @@ public class register_user extends AppCompatActivity {
         myRef.child(username).child("username").setValue(username);
         myRef.child(username).child("password").setValue(password);
 
-        Intent intent = new Intent(register_user.this, available_slots.class);
+        Intent intent = new Intent(register_user.this, user_profile.class);
         startActivity(intent);
 
         Toast.makeText(getApplicationContext(), "Successfully Registered", duration).show();

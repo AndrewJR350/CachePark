@@ -41,9 +41,12 @@
         <activity
             android:name=".available_slots"
             android:label="@string/title_activity_available_slots" />
-        <activity android:name=".register_slot">
-        </activity>
-        <activity android:name=".view_bills"></activity>
+        <activity android:name=".register_slot"></activity>
+        <activity android:name=".view_bills" />
+        <activity
+            android:name=".user_profile"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

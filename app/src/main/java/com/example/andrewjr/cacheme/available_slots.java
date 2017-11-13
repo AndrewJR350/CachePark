@@ -160,13 +160,14 @@ public class available_slots extends FragmentActivity implements OnMapReadyCallb
     }
 
 
+
     private void statusOfAvailableSlot(String ownerName, ArrayList<AvailableSlots> availableSlotsArrayList, Marker marker, ArrayList<Marker> markerArrayList) {
         for (AvailableSlots availableSlots : availableSlotsArrayList) {
             if (availableSlots.getOwnerUsername().equals(ownerName) && availableSlots.getAvailable()) {
                 availableSlots.setAvailable("false");
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ownerRef = database.getReference().child("AvailableSlots").child(ownerName);
-                
+
                 writeBillOnFireBase(ownerName);
                 ownerRef.child("available").setValue("false");
                 marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
