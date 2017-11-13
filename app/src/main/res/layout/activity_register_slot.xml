@@ -44,6 +44,7 @@
         android:layout_below="@+id/textView3"
         android:layout_marginTop="11dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="96dp" />
@@ -69,6 +70,7 @@
         android:layout_below="@+id/textView4"
         android:layout_marginTop="11dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="183dp" />
@@ -92,6 +94,7 @@
         android:layout_below="@+id/textView5"
         android:layout_marginTop="12dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="274dp" />

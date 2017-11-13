@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +8,92 @@
     tools:context="com.example.andrewjr.cacheme.user_profile"
     tools:showIn="@layout/app_bar_user_profile">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="234dp"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/intxtName"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtName"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="Andrew"
+        android:textColorLink="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/usernameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtName"
+        android:layout_alignStart="@+id/txtName"
+        android:layout_below="@+id/intxtName"
+        android:layout_marginTop="17dp"
+        android:text="Username" />
+
+    <TextView
+        android:id="@+id/intxtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/usernameTxt"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:text="andrew" />
+
+    <TextView
+        android:id="@+id/phoneNotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usernameTxt"
+        android:layout_alignStart="@+id/usernameTxt"
+        android:layout_below="@+id/intxtUsername"
+        android:layout_marginTop="20dp"
+        android:text="Contact Number" />
+
+    <TextView
+        android:id="@+id/intxtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/phoneNotxt"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="123456789" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtName"
+        android:layout_marginBottom="67dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/phoneNotxt"
+        android:layout_toRightOf="@+id/phoneNotxt"
+        app:srcCompat="@drawable/account" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="450px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/account" />
+
+</RelativeLayout>
