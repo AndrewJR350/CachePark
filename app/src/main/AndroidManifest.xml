@@ -19,7 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".register_user" />
         <!--
@@ -38,12 +42,8 @@
             android:name=".available_slots"
             android:label="@string/title_activity_available_slots" />
         <activity android:name=".register_slot">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".view_bills"></activity>
     </application>
 
 </manifest>

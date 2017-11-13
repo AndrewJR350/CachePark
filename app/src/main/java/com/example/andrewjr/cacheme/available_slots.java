@@ -1,10 +1,12 @@
 package com.example.andrewjr.cacheme;
 
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -13,7 +15,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +34,7 @@ public class available_slots extends FragmentActivity implements OnMapReadyCallb
 
     private GoogleMap mMap;
     private String TAG = "cacheMe";
+    private GoogleMap.OnMyLocationChangeListener myLocationChangeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +94,9 @@ public class available_slots extends FragmentActivity implements OnMapReadyCallb
                 for (Map.Entry<String, Map<String, String>> entry : usersMap.entrySet()) {
                     Log.i(TAG, entry.getKey());
                     Map<String, String> userDetails = entry.getValue();
+
                     AvailableSlots availableSlots = new AvailableSlots();
+                    availableSlots.setOwnerUsername(entry.getKey());
                     for (Map.Entry<String, String> subEntry : userDetails.entrySet()) {
                         if (subEntry.getKey().equals("available")) {
                             Log.i(TAG, subEntry.getValue());
@@ -123,17 +131,60 @@ public class available_slots extends FragmentActivity implements OnMapReadyCallb
         });
     }
 
-    private void addMarker(ArrayList<AvailableSlots> availableSlotsArrayList) {
+    private void addMarker(final ArrayList<AvailableSlots> availableSlotsArrayList) {
         MarkerOptions markerOptions;
+        final ArrayList<Marker> markerArrayList = new ArrayList<>();
         for (AvailableSlots obj : availableSlotsArrayList) {
             LatLng tempLocation = new LatLng(obj.getLat(), obj.getLongi());
             if (obj.getAvailable()) {
-                markerOptions = new MarkerOptions().position(tempLocation).title("Available : " + obj.getPricePerHour()+ " $ per hour ").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                markerOptions = new MarkerOptions().position(tempLocation).title("Available : " + obj.getPricePerHour() + " $ per hour ")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)).snippet(obj.getOwnerUsername());
             } else {
-                markerOptions = new MarkerOptions().position(tempLocation).title("Sorry I'm already Booked").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                markerOptions = new MarkerOptions().position(tempLocation).title("Sorry I'm already Booked")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)).snippet(obj.getOwnerUsername());
             }
-            mMap.addMarker(markerOptions);
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tempLocation,14.0f));
+            markerArrayList.add(mMap.addMarker(markerOptions));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tempLocation, 14.0f));
+        }
+
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Log.i(TAG, marker.getId());
+                Toast.makeText(getApplicationContext(), "Owner Name : " + marker.getSnippet(), Toast.LENGTH_LONG).show();
+                statusOfAvailableSlot(marker.getSnippet(), availableSlotsArrayList, marker, markerArrayList);
+            }
+        });
+    }
+
+
+    private void statusOfAvailableSlot(String ownerName, ArrayList<AvailableSlots> availableSlotsArrayList, Marker marker, ArrayList<Marker> markerArrayList) {
+        for (AvailableSlots availableSlots : availableSlotsArrayList) {
+            if (availableSlots.getOwnerUsername().equals(ownerName) && availableSlots.getAvailable()) {
+                availableSlots.setAvailable("false");
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ownerRef = database.getReference().child("AvailableSlots").child(ownerName);
+                
+                writeBillOnFireBase(ownerName);
+                ownerRef.child("available").setValue("false");
+                marker.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+            } else {
+                Toast.makeText(getApplicationContext(), "Place is Not Available", Toast.LENGTH_LONG);
+            }
         }
     }
+
+    private void writeBillOnFireBase(String username) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference billRef = database.getReference("Bills").child(username).push();
+
+        billRef.child("hours").setValue("1");
+        billRef.child("price").setValue("35");
+        billRef.child("rating").setValue("4");
+
+
+    }
 }
+

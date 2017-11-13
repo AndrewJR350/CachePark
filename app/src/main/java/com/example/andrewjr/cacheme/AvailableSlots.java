@@ -11,6 +11,7 @@ public class AvailableSlots {
     private String lat;
     private String longi;
     private String pricePerHour;
+    private String ownerUsername;
 
     public Boolean getAvailable() {
         return available.equals("true") ? true: false;
@@ -42,5 +43,14 @@ public class AvailableSlots {
 
     public void setPricePerHour(String pricePerHour) {
         this.pricePerHour = pricePerHour;
+    }
+
+
+    public String getOwnerUsername() {
+        return ownerUsername;
+    }
+
+    public void setOwnerUsername(String ownerUsername) {
+        this.ownerUsername = ownerUsername;
     }
 }
