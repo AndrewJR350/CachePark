@@ -91,7 +91,7 @@ public class view_bills extends AppCompatActivity {
 
     private void printOnListView(ArrayList<Bills> billsArrayList) {
         for(Bills bill : billsArrayList) {
-            billList.add("Parked Hours : " + bill.getHours() + "\n" + "Price : " + bill.getTotalPrice() + "\n" + "Rating : " + bill.getRating());
+            billList.add("Parked Hours : " + bill.getHours()+ " Hour" + "\n" + "Price : " + bill.getTotalPrice()+ "$" + "\n" + "Rating : " + bill.getRating()+ "*");
         }
         arrayAdapter.notifyDataSetChanged();
     }
