@@ -87,7 +87,7 @@ public class user_profile extends AppCompatActivity
             startActivity(intent);
             Toast.makeText(getApplicationContext(), "Hello, Here are your Bills", Toast.LENGTH_LONG).show();
         } else if (id == R.id.account) {
-            Intent intent = new Intent(user_profile.this, available_slots.class);
+            Intent intent = new Intent(user_profile.this, user_profile.class);
             startActivity(intent);
             startActivity(intent);
             Toast.makeText(getApplicationContext(), "Hi Welcome !!! ", Toast.LENGTH_LONG).show();
@@ -105,6 +105,11 @@ public class user_profile extends AppCompatActivity
             startActivity(intent);
             Toast.makeText(getApplicationContext(), "Successfully Sign out", Toast.LENGTH_LONG).show();
 
+        }else if (id == R.id.slotsRegister){
+            Intent intent = new Intent(user_profile.this, register_slot.class);
+            startActivity(intent);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Register Your Slots", Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -61,7 +61,7 @@ public class view_bills extends AppCompatActivity {
                         Map<String, String> userDetails = entry.getValue();
                         Bills bills = new Bills();
                         for (Map.Entry<String, String> subEntry : userDetails.entrySet()) {
-                            Log.i(TAG, subEntry.getKey() + "" + subEntry.getValue());
+                            Log.i(TAG, subEntry.getKey() + " " + subEntry.getValue());
                             if (subEntry.getKey().equals("hours")) {
                                 Log.i(TAG, subEntry.getValue());
                                 bills.setHours(subEntry.getValue());

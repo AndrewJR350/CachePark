@@ -5,20 +5,26 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/viewBills"
-            android:icon="@drawable/billslogo"
+            android:id="@+id/account"
+            android:icon="@drawable/account"
             android:scaleType = "centerCrop"
-            android:title="View Bills" />
+            android:title="Profile" />
         <item
             android:id="@+id/getMap"
             android:icon="@drawable/maplogo"
             android:scaleType = "centerCrop"
             android:title="Park Vehicle " />
         <item
-            android:id="@+id/account"
+            android:id="@+id/slotsRegister"
             android:icon="@drawable/account"
             android:scaleType = "centerCrop"
-            android:title="Profile" />
+            android:title="Register Slot" />
+        <item
+            android:id="@+id/viewBills"
+            android:icon="@drawable/billslogo"
+            android:scaleType = "centerCrop"
+            android:title="View Bills" />
+
         <item
             android:id="@+id/signOut"
             android:icon="@drawable/signout"
