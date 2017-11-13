@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/username.txt"
+        android:id="@+id/intxtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -42,9 +42,10 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/username.txt"
+        android:layout_below="@+id/intxtName"
         android:layout_marginTop="19dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="113dp" />
@@ -58,6 +59,7 @@
         android:layout_below="@+id/txt.password"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="213dp" />
@@ -108,8 +110,8 @@
         android:id="@+id/txt.password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/username.txt"
-        android:layout_alignRight="@+id/username.txt"
+        android:layout_alignEnd="@+id/intxtName"
+        android:layout_alignRight="@+id/intxtName"
         android:layout_below="@+id/username.intxt"
         android:layout_marginTop="21dp"
         android:text="Enter Your Password" />

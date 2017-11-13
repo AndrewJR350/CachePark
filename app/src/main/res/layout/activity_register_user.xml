@@ -28,6 +28,7 @@
         android:layout_below="@+id/name.txt"
         android:layout_marginTop="14dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="96dp" />
@@ -67,12 +68,13 @@
         android:layout_below="@+id/txt.phone"
         android:layout_marginTop="14dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="183dp" />
 
     <TextView
-        android:id="@+id/username.txt"
+        android:id="@+id/intxtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txt.phone"
@@ -89,9 +91,10 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/username.txt"
+        android:layout_below="@+id/intxtName"
         android:layout_marginTop="17dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="274dp" />
@@ -100,8 +103,8 @@
         android:id="@+id/password.txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/username.txt"
-        android:layout_alignRight="@+id/username.txt"
+        android:layout_alignEnd="@+id/intxtName"
+        android:layout_alignRight="@+id/intxtName"
         android:layout_below="@+id/username.intxt"
         android:layout_marginTop="17dp"
         android:text="Enter Your Password"
@@ -117,6 +120,7 @@
         android:layout_below="@+id/password.txt"
         android:layout_marginTop="13dp"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="365dp" />
