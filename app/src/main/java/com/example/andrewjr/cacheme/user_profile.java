@@ -1,5 +1,7 @@
 package com.example.andrewjr.cacheme;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -81,6 +83,7 @@ public class user_profile extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        FragmentManager fragmentManager = getFragmentManager();
 
         if (id == R.id.viewBills) {
             Intent intent = new Intent(user_profile.this,view_bills.class);
@@ -106,12 +109,13 @@ public class user_profile extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Successfully Sign out", Toast.LENGTH_LONG).show();
 
         }else if (id == R.id.slotsRegister){
-            Intent intent = new Intent(user_profile.this, register_slot.class);
-            startActivity(intent);
-            startActivity(intent);
-            Toast.makeText(getApplicationContext(), "Register Your Slots", Toast.LENGTH_LONG).show();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new register_slot_fragment()).commit();
+//            Intent intent = new Intent(user_profile.this, register_slot.class);
+//            startActivity(intent);
+//            startActivity(intent);
+//            Toast.makeText(getApplicationContext(), "Register Your Slots", Toast.LENGTH_LONG).show();
         }
-
+        
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
