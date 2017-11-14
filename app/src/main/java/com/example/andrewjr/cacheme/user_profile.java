@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,11 +20,12 @@ import android.widget.Toast;
 
 public class user_profile extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private String TAG = "cacheMe";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -44,6 +46,7 @@ public class user_profile extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -81,9 +84,13 @@ public class user_profile extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         FragmentManager fragmentManager = getFragmentManager();
+
+
+
 
         if (id == R.id.viewBills) {
             fragmentManager.beginTransaction().replace(R.id.content_frame, new view_bills_fragment()).commit();
@@ -93,19 +100,16 @@ public class user_profile extends AppCompatActivity
         } else if (id == R.id.account) {
             Intent intent = new Intent(user_profile.this, user_profile.class);
             startActivity(intent);
-            startActivity(intent);
             Toast.makeText(getApplicationContext(), "Hi Welcome !!! ", Toast.LENGTH_LONG).show();
 
 
         } else if (id == R.id.getMap) {
             Intent intent = new Intent(user_profile.this, available_slots.class);
             startActivity(intent);
-            startActivity(intent);
             Toast.makeText(getApplicationContext(), "Changing to Map", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.signOut) {
             Intent intent = new Intent(user_profile.this, login.class);
-            startActivity(intent);
             startActivity(intent);
             Toast.makeText(getApplicationContext(), "Successfully Sign out", Toast.LENGTH_LONG).show();
 

@@ -1,5 +1,6 @@
 package com.example.andrewjr.cacheme;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
@@ -34,7 +35,6 @@ public class available_slots extends FragmentActivity implements OnMapReadyCallb
 
     private GoogleMap mMap;
     private String TAG = "cacheMe";
-    private GoogleMap.OnMyLocationChangeListener myLocationChangeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,15 +177,21 @@ public class available_slots extends FragmentActivity implements OnMapReadyCallb
         }
     }
 
-    private void writeBillOnFireBase(String username) {
+//    private void writeBillOnFireBase() {
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference billRef = database.getReference("Bills").child(username).push();
+//        billRef.child("hours").setValue("1");
+//        billRef.child("price").setValue("35");
+//        billRef.child("rating").setValue("4");
+//    }
+
+    private void writeBillOnFireBase(String ownername) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference billRef = database.getReference("Bills").child(username).push();
+        DatabaseReference billRef = database.getReference("Bills").child(ownername).push();
 
         billRef.child("hours").setValue("1");
         billRef.child("price").setValue("35");
         billRef.child("rating").setValue("4");
-
-
     }
 }
 
